@@ -1,0 +1,17 @@
+{% extends "layout_finished.html" %}
+{% block content %}
+    <section class="feed-heading" aria-labelledby="feed-title">
+        <p class="eyebrow">THE FASTAPI JOURNAL</p>
+        <h1 id="feed-title">Ideas, in progress.</h1>
+        <p class="feed-intro">Notes and updates from the blog.</p>
+    </section>
+    {% for post in posts %}
+        <article class="post-card">
+            <p class="post-meta">FIELD NOTES <span aria-hidden="true">/</span> {{ "%02d"|format(post.id) }}</p>
+            <h2>{{ post.title }}</h2>
+            <p class="post-copy">{{ post.content }}</p>
+        </article>
+    {% else %}
+        <p class="empty-state">No posts yet. Check back soon.</p>
+    {% endfor %}
+{% endblock content %}
